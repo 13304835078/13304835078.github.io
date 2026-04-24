@@ -1,30 +1,343 @@
-<h1 align="center">Hi there 👋, I'm Liu YuChen</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liu Yuchen | AI Research & Engineering</title>
+    <meta
+      name="description"
+      content="Liu Yuchen's personal homepage: AI research interests, projects, skills, and contact links."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --bg-soft: #121a30;
+        --text: #e7ecff;
+        --muted: #a8b3d6;
+        --card: rgba(255, 255, 255, 0.06);
+        --border: rgba(255, 255, 255, 0.18);
+        --accent: #76a9ff;
+        --accent-2: #8effc1;
+        --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
 
-<p align="center">
-  <em>Welcome to my personal GitHub page!</em>
-</p>
+      :root.light {
+        --bg: #f5f8ff;
+        --bg-soft: #eaf0ff;
+        --text: #1c2748;
+        --muted: #50608a;
+        --card: rgba(255, 255, 255, 0.9);
+        --border: rgba(20, 40, 100, 0.12);
+        --accent: #2f5cff;
+        --accent-2: #0ea472;
+        --shadow: 0 10px 25px rgba(64, 86, 170, 0.15);
+      }
 
----
+      * {
+        box-sizing: border-box;
+      }
 
-### 🧭 About Me
-- 🎓 Passionate about **Machine Learning**, **Reinforcement Learning**, and **Game Theory**  
-- 🧠 Exploring **Safe Opponent Modeling** and **Multi-Agent Interaction**  
-- 💡 Interested in combining theory and practical implementation  
-- 🌱 Currently learning advanced **communication and AI optimization techniques**
+      html,
+      body {
+        margin: 0;
+        scroll-behavior: smooth;
+        font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 10% 10%, rgba(118, 169, 255, 0.2), transparent 34%),
+          radial-gradient(circle at 80% 15%, rgba(142, 255, 193, 0.14), transparent 32%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+      }
 
----
+      .container {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
 
-### 📫 Contact Me
-- ✉️ Email: *your.email@example.com*  
-- 🌐 Zhihu: [Liu YuChen on Zhihu](https://www.zhihu.com/people/35-52-72-88-93)  
-- 🧑‍💻 GitHub: [@your-github-username](https://github.com/your-github-username)
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        background: color-mix(in oklab, var(--bg) 70%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
 
----
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=your-github-username&show_icons=true&theme=transparent" alt="GitHub Stats" />
-</p>
+      .brand {
+        font-weight: 700;
+      }
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=your-github-username&style=flat-square" alt="profile views"/>
-</p>
+      .nav-links {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a,
+      .btn {
+        color: var(--text);
+        text-decoration: none;
+        border: 1px solid var(--border);
+        background: var(--card);
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+        cursor: pointer;
+      }
+
+      .nav-links a:hover,
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: var(--accent);
+      }
+
+      .hero {
+        min-height: 50vh;
+        display: grid;
+        place-content: center;
+        gap: 1rem;
+        text-align: center;
+        padding: 3.5rem 1rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.8rem, 3.4vw, 3rem);
+        margin: 0;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .typing {
+        color: var(--muted);
+        min-height: 1.6rem;
+      }
+
+      .grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      @media (min-width: 860px) {
+        .grid.two {
+          grid-template-columns: 1.1fr 0.9fr;
+        }
+      }
+
+      section.card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1rem 1.1rem;
+        box-shadow: var(--shadow);
+      }
+
+      .chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .chip {
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        padding: 0.3rem 0.7rem;
+        color: var(--muted);
+      }
+
+      .projects {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .project {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.8rem;
+        background: color-mix(in oklab, var(--card) 70%, transparent);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.8rem;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 1rem 0 1.6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">Liu Yuchen</div>
+        <div class="nav-links" aria-label="primary navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <button id="theme-toggle" class="btn" type="button" aria-label="toggle theme">🌗 Theme</button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero container">
+      <h1>
+        Hi there 👋, I'm <span class="gradient-text">Liu Yuchen</span>
+      </h1>
+      <p class="typing" id="typing-text">AI Researcher in training.</p>
+      <div class="contact-row" style="justify-content: center;">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn" href="https://github.com/liuyuchen" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </header>
+
+    <main class="container grid">
+      <div class="grid two">
+        <section class="card reveal" id="about" aria-label="about me">
+          <h2>🧭 About Me</h2>
+          <p class="muted">
+            I am interested in machine learning, reinforcement learning, and game theory, with a focus on safe opponent modeling and multi-agent interaction.
+          </p>
+          <ul>
+            <li>🎓 Research orientation: RL + multi-agent learning</li>
+            <li>🧠 Focus: robustness, safety, and decision making</li>
+            <li>💡 Goal: bridge theory and deployable systems</li>
+          </ul>
+        </section>
+
+        <section class="card reveal" id="skills" aria-label="skills">
+          <h2>🛠️ Skills</h2>
+          <div class="chip-list">
+            <span class="chip">Python</span>
+            <span class="chip">PyTorch</span>
+            <span class="chip">Reinforcement Learning</span>
+            <span class="chip">Game Theory</span>
+            <span class="chip">Data Analysis</span>
+            <span class="chip">LLM Applications</span>
+          </div>
+        </section>
+      </div>
+
+      <section class="card reveal" id="projects" aria-label="projects">
+        <h2>🚀 Featured Projects</h2>
+        <div class="projects">
+          <article class="project">
+            <h3>Safe Opponent Modeling</h3>
+            <p class="muted">A framework for robust policy adaptation under uncertain opponent behavior.</p>
+          </article>
+          <article class="project">
+            <h3>Multi-Agent Communication Benchmark</h3>
+            <p class="muted">Experiments on communication efficiency and coordination stability in MARL tasks.</p>
+          </article>
+          <article class="project">
+            <h3>Decision-Making Playground</h3>
+            <p class="muted">Interactive demos for comparing strategic policies in repeated games.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card reveal" aria-label="github stats">
+        <h2>📈 GitHub Overview</h2>
+        <div class="stats">
+          <img src="https://github-readme-stats.vercel.app/api?username=liuyuchen&show_icons=true&theme=transparent" alt="GitHub stats for liuyuchen" />
+          <img src="https://komarev.com/ghpvc/?username=liuyuchen&style=flat-square" alt="Profile views for liuyuchen" />
+        </div>
+      </section>
+
+      <section class="card reveal" id="contact" aria-label="contact">
+        <h2>📫 Contact</h2>
+        <div class="contact-row">
+          <a class="btn" href="mailto:liu.yuchen@example.com">Email</a>
+          <a class="btn" href="https://www.zhihu.com/people/35-52-72-88-93" target="_blank" rel="noreferrer">Zhihu</a>
+          <a class="btn" href="https://github.com/liuyuchen" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Liu Yuchen · Built with HTML/CSS/JS
+    </footer>
+
+    <script>
+      const root = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme === 'light') {
+        root.classList.add('light');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        root.classList.toggle('light');
+        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      });
+
+      const typingTarget = document.getElementById('typing-text');
+      const words = [
+        'AI Researcher in training.',
+        'Building robust multi-agent systems.',
+        'Exploring safe and practical intelligence.'
+      ];
+      let wordIndex = 0;
+      setInterval(() => {
+        wordIndex = (wordIndex + 1) % words.length;
+        typingTarget.textContent = words[wordIndex];
+      }, 2600);
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+            }
+          });
+        },
+        { threshold: 0.08 }
+      );
+      document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
